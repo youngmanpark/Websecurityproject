@@ -145,6 +145,7 @@ driver = webdriver.Chrome(executable_path='chromedriver')
 # URL = "http://210.110.39.89/adminlogin.php"
 URL="http://210.110.39.89/testboard/login.php"
 URL2="http://210.110.39.89/testboard/list.php"
+URL3="http://210.110.39.89/DVWA/vulnerabilities/sqli/"
 # id도 주어지지 않았을 경우
 for s in sqlinjection_tautologies():
     driver.get(URL)
@@ -188,37 +189,6 @@ for s in sqlinjection_union():
     print("injection parameter: {0}".format(s))
     check_union()
 # 코드 실행 후 마치지 않고 유지하기 위함
-
-print('')
-print('')
-print('')
-print('   SQL injection weakness checklist')
-print('+----------------------+-------------+')
-print('|    attack method     |   weakness  |')
-print('|ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ|')
-print('|      Tautologies     |    danger   |')
-print('|----------------------|-------------|')
-print('|     Union Query      |    danger   |')
-print('|----------------------|-------------|')
-print('|  Piggy-Backed Query  |    danger   |')
-print('+----------------------+-------------+')
-
-print('')
-print('')
-
-print('')
-print('   SQL injection weakness checklist')
-print('+----------------------+-------------+')
-print('|    attack method     |   weakness  |')
-print('|ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ|')
-print('|      Tautologies     |     safe    |')
-print('|----------------------|-------------|')
-print('|     Union Query      |     safe    |')
-print('|----------------------|-------------|')
-print('|  Piggy-Backed Query  |     safe    |')
-print('+----------------------+-------------+')
-print('')
-
 
 while (True):
     pass
