@@ -99,11 +99,13 @@ def check_login_suc():
 
     # 로그인 성공 여부 확인
     if driver.current_url == 'http://210.110.39.89/testboard/list.php':
-        print('Detected WEAKNESS about Tautologies sql Injection!\n')
+        # print('Detected WEAKNESS about Tautologies sql Injection!\n')
+        print('Tautologies sql Injection risk\n')
 
 
     elif driver.current_url =='http://210.110.39.89/testboard/error_page.php':
-        print('Detected WEAKNESS about piggy_backed sql Injection!\n')
+        # print('Detected WEAKNESS about piggy_backed sql Injection!\n')
+        print('piggy_backed sql Injection risk\n')
 
     else:
         print('Not Detected WEAKNESS about piggy_backed sql Injection!\n')
@@ -112,7 +114,8 @@ def check_union():
 
 
     if union_txt in driver.current_url:
-        print("Detected WEAKNESS about Union sql Injection!\n")
+        # print("Detected WEAKNESS about Union sql Injection!\n")
+        print(" Union sql Injection risk\n")
     else:
         print('Not Detected WEAKNESS about piggy_backed sql Injection!\n')
 def check_login_suc_():
@@ -146,6 +149,7 @@ driver = webdriver.Chrome(executable_path='chromedriver')
 URL="http://210.110.39.89/testboard/login.php"
 URL2="http://210.110.39.89/testboard/list.php"
 URL3="http://210.110.39.89/DVWA/vulnerabilities/sqli/"
+print("sql injection")
 # id도 주어지지 않았을 경우
 for s in sqlinjection_tautologies():
     driver.get(URL)
@@ -154,7 +158,7 @@ for s in sqlinjection_tautologies():
     username.send_keys(s)
     password.send_keys("FAKE")
     password.send_keys(Keys.RETURN)
-    print("injection parameter: {0}".format(s))
+    # print("injection parameter: {0}".format(s))
     check_login_suc()
 # id만 주어질 경우:
 for s in sqlinjection_tautologies():
@@ -164,7 +168,7 @@ for s in sqlinjection_tautologies():
     username.send_keys("admin")
     password.send_keys(s)
     password.send_keys(Keys.RETURN)
-    print("injection parameter: {0}".format(s))
+    # print("injection parameter: {0}".format(s))
     check_login_suc()
 
 for s in sqlinjection_piggyback():
@@ -175,7 +179,7 @@ for s in sqlinjection_piggyback():
     password.send_keys(s)
     password.send_keys(Keys.RETURN)
 
-    print("injection parameter: {0}".format(s))
+    # print("injection parameter: {0}".format(s))
     check_login_suc()
 
 for s in sqlinjection_union():
@@ -186,7 +190,7 @@ for s in sqlinjection_union():
     search.send_keys(s)
     search.send_keys(Keys.RETURN)
 
-    print("injection parameter: {0}".format(s))
+    # print("injection parameter: {0}".format(s))
     check_union()
 # 코드 실행 후 마치지 않고 유지하기 위함
 
